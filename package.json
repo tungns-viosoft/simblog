@@ -1,0 +1,19 @@
+{
+  "name": "simblog",
+  "version": "1.0.0",
+  "description": "simple blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tungns-viosoft/simblog.git"
+  },
+  "author": "tungns",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tungns-viosoft/simblog/issues"
+  },
+  "homepage": "https://github.com/tungns-viosoft/simblog#readme"
+}
