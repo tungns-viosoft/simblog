@@ -3,8 +3,9 @@ morgan = require('morgan'),
 compress = require('compression'),
 bodyParser = require('body-parser'),
 methodOverride = require('method-override');
-var routes = require('./routes/index');
-app.use('/', routes);
+
+
+
 // app.set('view engine', 'ejs');
 
 // app.use('/', function(req,res){
@@ -12,6 +13,7 @@ app.use('/', routes);
 // });
 
 var app = express();
+var routes = require('./routes');
 
 if (process.env.NODE_ENV === 'development') {
 	app.use(morgan('dev'));
@@ -24,10 +26,11 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 app.use(methodOverride());
-app.set('views', './app/views');
+app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.use (routes);
+app.use(routes());
+// app.use (routes);
 
 
 app.listen(3000);
