@@ -3,6 +3,10 @@ morgan = require('morgan'),
 compress = require('compression'),
 bodyParser = require('body-parser'),
 methodOverride = require('method-override');
+var serveIndex = require('serve-index');
+const path = require('path');
+
+var expressLayouts = require('express-ejs-layouts');
 
 
 
@@ -28,9 +32,12 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 app.set('views', './views');
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
+
+app.use('/p', serveIndex(path.join(__dirname, 'public'))); //allow to show folder
+app.use('/p', express.static(path.join(__dirname, 'public'))); //allow to show each file in folder
 
 app.use(routes());
-// app.use (routes);
 
 
 app.listen(3000);
